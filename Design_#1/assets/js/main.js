@@ -12,39 +12,19 @@ const showMenu = (toggleId, navId) => {
 
 showMenu("nav-toggle", "nav-menu");
 
-/*===== REMOVE MENU MOBILE =====*/
-
+/*===== ACTIVE AND REMOVE MENU =====*/
 const navLink = document.querySelectorAll(".nav__link");
+
 function linkAction() {
+  /*Active link*/
+  navLink.forEach((n) => n.classList.remove("active-link"));
+  this.classList.add("active-link");
+
+  /*Remove menu mobile*/
   const navMenu = document.getElementById("nav-menu");
   navMenu.classList.remove("show-menu");
 }
-
 navLink.forEach((n) => n.addEventListener("click", linkAction));
-
-/*===== SCROLL SECTIONS ACTIVE LINK =====*/
-const sections = document.querySelectorAll("section[id]");
-
-function scrollActive() {
-  const scrollY = window.pageXOffset;
-
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 50,
-      sectionId = current.getAttribute("id");
-
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
-        .classList.add("active-link");
-    } else {
-      document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
-        .classList.remove("active-link");
-    }
-  });
-}
-window.addEventListener("scroll", scrollActive);
 
 /*===== CHANGE BACKGROUND HEADER =====*/
 function scrollHandler() {
@@ -52,7 +32,6 @@ function scrollHandler() {
   if (this.scrollY >= 200) header.classList.add("scroll-header");
   else header.classList.remove("scroll-header");
 }
-
 window.addEventListener("scroll", scrollHandler);
 
 /*===== SWIPER CAROUSEL =====*/
@@ -60,7 +39,7 @@ const mySwiper = new Swiper(".swiper-container", {
   spaceBetween: 16,
   grabCursor: true,
   loop: true,
-  slidesPerView: "auto",
+  slidesPerView: 3,
   autoSlide: true,
 
   // If we need pagination
@@ -68,41 +47,69 @@ const mySwiper = new Swiper(".swiper-container", {
     el: ".swiper-pagination",
     clickable: true,
   },
+  spaceBetween: 10,
+  // Responsive breakpoints
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    // when window width is >= 640px
+    640: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+  },
 });
 
-/*===== MIXITUP FILTER PORTFOLIO =====*/
-const mixer = mixitup(".portfolio__container", {
-  selectors: {
-    target: ".portfolio__content",
-  },
-  animation: {
-    duration: 400,
-  },
-});
-
-/* Link active portfolio */
-const linkPortfolio = document.querySelectorAll(".portfolio__item");
-
-function activePortfolio() {
-  if (linkPortfolio) {
-    linkPortfolio.forEach((l) => l.classList.remove("active-portfolio"));
-    this.classList.add("active-portfolio");
-  }
+/*===== SHOW SCROLL TOP =====*/
+function scrollTop() {
+  const scrollTop = document.getElementById("scroll-top");
+  if (this.scrollY >= 560) scrollTop.classList.add("show-scroll");
+  else scrollTop.classList.remove("show-scroll");
 }
 
-linkPortfolio.forEach((l) => l.addEventListener("click", activePortfolio));
+window.addEventListener("scroll", scrollTop);
 
 /*===== GSAP ANIMATION =====*/
-gsap.from(".home__img", { opacity: 0, duration: 2, delay: 0.5 });
-gsap.from(".home__data", { opacity: 0, duration: 2, delay: 0.8, y: 25 });
-gsap.from(".home__greeting, .home__name, .home__profression, .home__button", {
+gsap.from(".home__img, .service__img, .tools__box, .what__img", {
   opacity: 0,
   duration: 2,
-  delay: 1,
-  y: 15,
-  ease: "expo.out",
-  stagger: 0.2,
+  delay: 0.5,
 });
+
+gsap.from(".home__grid, .how__container, .tools__container", {
+  opacity: 0,
+  duration: 2,
+  delay: 0.7,
+});
+
+gsap.from(".home__data, .service__data, .service__help, .what__data", {
+  opacity: 0,
+  duration: 2,
+  delay: 0.8,
+  y: 25,
+});
+
+gsap.from(".partner", { opacity: 0, duration: 2, delay: 0.8, y: 25 });
+
+gsap.from(
+  ".home__greeting, .home__name, .home__profression, .home__button, .how__desc, .how__box",
+  {
+    opacity: 0,
+    duration: 2,
+    delay: 1,
+    y: 15,
+    ease: "expo.out",
+    stagger: 0.2,
+  }
+);
 
 gsap.from(".nav__logo, .nav__toggle", {
   opacity: 0,

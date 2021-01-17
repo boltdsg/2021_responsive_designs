@@ -6,18 +6,10 @@
   --header-height: 3rem;
 
   /*===== Colors =====*/
-  --first-color: #3e0e12;
-  --first-color-dark: #2f0a0d;
-  --text-color: #524748;
-  --first-color-light: #7b6f71;
-  --first-color-lighten: #fbf9f9;
-  --default-color: #fffafa;
-  --default-color-dark: #ff4c60;
-  --default-color-dark-light: #fce9e7;
-  --default-color-light: #c4c4c4;
-  --default-color-lighter: #fffafa;
-  --default-color-lighten: #f9f3f5;
-  --default-color-darker: #282828;
+  --default-color: #ffffff;
+  --default-color-color: #f7693e;
+  --default-color-black: #2e0838;
+  --default-color-grey: #979797;
 
   /*===== Font and typography =====*/
   --body-font: "Poppins", sans-serif;
@@ -116,28 +108,6 @@ img {
   flex-direction: column;
 }
 
-/*===== CLASS CSS =====*/
-.section {
-  padding: 4rem 0 2rem;
-}
-
-.section-title,
-.section-subtitle {
-  text-align: center;
-}
-
-.section-title {
-  font-size: var(--h1-font-size);
-  color: var(--first-color);
-  margin-bottom: var(--mb-3);
-}
-
-.section-subtitle {
-  display: block;
-  font-size: var(--small-font-size);
-  font-weight: var(--font-semi-bold);
-}
-
 /*===== LAYOUT =====*/
 .bd-container {
   max-width: 1024px;
@@ -157,7 +127,14 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: #fffafa;
+  background-color: #fff;
+}
+
+/* Active menu */
+.active-link,
+.active-link a {
+  position: relative;
+  color: var(--default-color-dark);
 }
 
 @media screen and (min-width: 1024px) {
@@ -169,29 +146,28 @@ img {
 
 /*===== NAV =====*/
 
+/* ===== Show menu ===== */
 
-/* Show menu */
+/* ===== Active menu ===== */
 
+/* ====== Home ===== */
 
-/* Active menu */
+/* ===== BUTTONS =====*/
 
+/* ===== Services ===== */
 
-/* ===== SCROLL TOP ===== */
+/* ===== How it works ===== */
 
-/* BUTTONS */
+/* ===== Tools ===== */
 
-/* Newsletter & Services */
+/*  ===== What ===== */
 
-/* Skills */
+/* ===== Footer ===== */
 
-/* Ability */
+/*===== SCROLL TOP =====*/
 
-/* Clients */
+/* ===== Show scroll top ===== */
 
-/* Blog */
+/* Change background header */
 
-/* Social */
-
-/* Portfolio */
-
-/* Contact */
+/* ===== Active menu ====== */

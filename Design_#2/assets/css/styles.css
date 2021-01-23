@@ -1,0 +1,279 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+  --header-height: 3rem;
+
+  /*===== Colors =====*/
+  --default-color-first: #fffafa;
+  --default-color-second: #ff4c60;
+  --default-color-dark: #282828;
+  --default-color-silver: #f9f3f5;
+  --default-color-silver2: #c4c4c4;
+
+  /*===== Font and typography =====*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*===== Font weight =====*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*===== Margenes =====*/
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /*===== z index =====*/
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --biggest-font-size: 4.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*===== BASE =====*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--default-color-first);
+}
+
+h1,
+h2,
+h3,
+ul,
+p {
+  margin: 0;
+}
+
+h2,
+h3 {
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bs-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--default-color-first);
+}
+
+/*===== LAYOUT =====*/
+.bs-container {
+  max-width: 1024px;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+@media screen and (min-width: 1024px) {
+  .bs-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.bs-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*===== CLASS CSS =====*/
+.section {
+  padding: 4rem 0 2rem;
+}
+
+.section-title,
+.section-subtitle {
+  text-align: center;
+}
+
+.section-title {
+  font-size: var(--h1-font-size);
+  color: var(--default-color-dark);
+  margin-bottom: var(--mb-3);
+}
+
+.section-subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+/*===== NAV =====*/
+
+/* Show menu */
+
+/* Change background header */
+.scroll-header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-header .nav__logo .scroll-header .nav__toggle,
+.scroll-header .nav__link {
+  color: var(--default-color-dark);
+}
+
+/*===== SCROLL TOP =====*/
+.scrolltop {
+  position: fixed;
+  right: 1rem;
+  /* bottom: 1.5rem; */
+  bottom: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: rgba(123, 11, 113, 0.7);
+  border-radius: 0.5rem;
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+  /* visibility: hidden; */
+}
+
+.scrolltop:hover {
+  background-color: var(--first-color);
+}
+
+.scrolltop__icon {
+  font-size: 2rem;
+  color: var(--first-color-lighten);
+}
+
+/* Show scroll top */
+.show-scroll {
+  bottom: 1.5rem;
+}
+
+/* Active menu */
+.active-link {
+  position: relative;
+  color: var(--default-color-second) !important;
+  font-weight: 700;
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.7rem;
+  left: 50%;
+  width: 10%;
+  height: 5px;
+  background-color: var(--default-color-second);
+  border-radius: 50%;
+}
+
+/*===== HOME =====*/
+
+/* ===== BUTTONS ===== */
+
+/* ===== Newsletter ===== */
+
+/* ===== Skills ===== */
+
+/* ===== Services ===== */
+
+/* ===== My Service ===== */
+
+/* ===== Clients ===== */
+
+/* ===== Blog ===== */
+
+/* ===== Clients ===== */
+
+/*===== PORTFOLIO =====*/
+
+/* Active menu portfolio*/
+
+/* Contact */
+
+/* ===== Responsive ===== */
+
+@media screen and (max-width: 548px) {
+}
+
+@media screen and (min-width: 768px) {
+  /* Client & Social*/
+
+  /* Blog */
+}
+
+@media screen and (min-width: 1024px) {
+  /* Nav */
+
+  /* Home*/
+
+  /* Skills Container */
+
+  /* My Service */
+
+  /* Client */
+
+  /* Blog */
+
+  /* Social */
+
+  /* Portfolio */
+
+  /* Contact */
+}
